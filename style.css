@@ -1,0 +1,96 @@
+:root{
+    --fundo: #F1F1F1;
+    --cartao-frente: #0074D9;
+    --cartao--verso: #3D3D3D;
+    --Destaque: #FF851B;
+    --preto:#000000;
+    --branco:#ffffff;
+    }
+
+    body{
+        background-color: var(--fundo);
+        margin: 0;
+    }
+
+    header{
+        background-color: var(--preto)
+        color var(--branco);
+        padding: 2rem;
+        display: flex;
+        justify-content: space-around;
+
+    }
+    header a{
+        color: var(--Destaque);
+        text-decoration: none;
+    }
+    footer{
+        position: fixed;
+        bottom: 0;
+        color: var(--preto);
+        width: 100%;
+        text-align: center;
+    }
+    #container{
+        display: flex;
+        padding: 4rem;
+        gap: 3rem;
+        flex-wrap: wrap;
+
+    }
+
+    .cartao{
+        flex-grow: 1;
+        flex-basis: calc(33% - 6rem);
+        margin: 1rem;
+        height: 20rem;
+    }
+
+    .conteudo-cartao{
+        background-color: var(--cartao-frente);
+        text-align: center;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 300ms ease-in-out;
+    }
+
+    .conteudo-cartao h3{
+        color: var(--Destaque);
+        border: 1px solid var(--Destaque);
+        position: absolute;
+        text-align: left;
+        margin: 0.6rem;
+        padding: 0.6rem;
+        border-radius: 0.6rem;
+        font-size: 1vw;
+        backface-visibility: hidden;
+    }
+    .conteudo-cartao p{
+        margin-top: 4rem;
+        font-size: 1.4rem;
+        padding: 2rem;
+    }
+    .pergunta-cartao{
+        font-weight: 500;
+    }
+    .resposta-cartao{
+        font-weight: 700;
+        color: var(--Destaque);
+    }
+.cartao.active .conteudo-cartao{
+    transform: rotateY(180deg);
+}
+
+.pergunta-cartao, .resposta-cartao{
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.resposta-cartao{
+    transform: rotateY(180deg);
+    background-color: var(--cartao--verso);
+    border: 2px solid var(--Destaque);
+}
