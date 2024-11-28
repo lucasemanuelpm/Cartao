@@ -1,65 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Qpagina 2</title>
-</head>
-<body>
-    <header>
-        <a href="index.html">Página 1</a>
-        <a href="projeto2.html">Página 2</a>
-    </header>
-    
-    <section id="container">
-        <!-- O cartão será inserido aqui pelo JavaScript -->
-    </section>
-    
-    <footer>
-        <p>Desenvolvido por: Lucas Perim </p>
-    </footer>
-    
-    
-    <script>
-        criaCartao('Nome', 'email', 'telefone');
-    
-        function criaCartao(nome, email , telefone){
-            let container = document.getElementById('container');
-            let cartao = document.createElement('article');
-            cartao.className = 'cartao';
-            cartao.innerHTML = `
-            <div class="conteudo-cartao">
-                <h3>${nome}</h3>
-                <div class="pergunta-cartao">
-                    <p>${email}</p>
-                </div>
-                <div class="resposta-cartao">
-                    <p>${telefone}</p>
-                </div>
-            </div>
-            `;
-    
-            let respostaEstaVisivel = false;
-            function viraCartao(){
-                respostaEstaVisivel = !respostaEstaVisivel;
-                cartao.classList.toggle('active', respostaEstaVisivel);
-            }
-    
-            cartao.addEventListener('click', viraCartao);
-    
-            container.appendChild(cartao);
-        }
-    
-    
-        document.addEventListener('DOMContentLoaded', () => {
-            const nome = localStorage.getItem('nome') || 'Nome não informado';
-            const email = localStorage.getItem('email') || 'Email não informado';
-            const telefone = localStorage.getItem('telefone') || 'Telefone não informado';
+<form id="formulario">
+    <p>Digite seu Nome :</p>
+    <input type="text" id="nome" placeholder="Nome completo" required> <br>
+    <p>Digite seu email</p>
+    <input type="email" id="email" value="@escola.pr.gov.br"> <br>
+    <p>Digite seu número</p>
+    <input type="number" id="telefone" placeholder="(XX)XXXXX-XXXX"> <br>
+    <button type="button" id="enviar">Enviar</button>
+    <button type="reset">Limpar</button>
+</form>
 
-            // Cria o cartão com as informações
-            criaCartao(nome, email, telefone);
-        });
-    </script>
-</body>
-</html>
+<script>
+    document.getElementById('enviar').addEventListener('click', () => {
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const telefone = document.getElementById('telefone').value;
+
+        // Armazena os dados no localStorage
+        localStorage.setItem('nome', nome);
+        localStorage.setItem('email', email);
+        localStorage.setItem('telefone', telefone);
+
+        // Redireciona para a página index.html
+        window.location.href = 'index.html';
+    });
+</script>
