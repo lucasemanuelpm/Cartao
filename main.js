@@ -1,7 +1,7 @@
 criaCartao(
-    'História',
-    'Quem descobriu o Brasil?',
-    'Pedro Álvares Cabral.'
+    'Nome',
+    'email',
+    'telefone.'
 )
 
 function criaCartao(nome, email , telefone){
