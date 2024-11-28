@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Qualquer coisa</title>
+    <title>Qpagina 2</title>
 </head>
 <body>
     <header>
         <a href="projeto2.html">Página 1</a>
         <a href="index.html">Página 2</a>
-            
-
     </header>
+    
     <section id="container">
-
+        <!-- O cartão será inserido aqui pelo JavaScript -->
     </section>
+    
     <footer>
-        <p>Desenvolvidor por: Lucas Perim </p>
+        <p>Desenvolvido por: Lucas Perim </p>
     </footer>
-    <script src="main.js"></script>
+    
+    <script src="main.js"></script> <!-- Seu arquivo de JS principal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nome = localStorage.getItem('nome') || 'Nome não informado';
+            const email = localStorage.getItem('email') || 'Email não informado';
+            const telefone = localStorage.getItem('telefone') || 'Telefone não informado';
+
+            // Cria o cartão com as informações
+            criaCartao(nome, email, telefone);
+        });
+    </script>
 </body>
 </html>
