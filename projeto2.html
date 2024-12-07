@@ -1,31 +1,67 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const nome = localStorage.getItem('nome') || 'Nome não informado';
-    const email = localStorage.getItem('email') || 'Email não informado';
-    const telefone = localStorage.getItem('telefone') || 'Telefone não informado';
-    const habilidades = JSON.parse(localStorage.getItem('habilidades')) || [];
-    const requisitos = JSON.parse(localStorage.getItem('requisitos')) || [];
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Qpagina 2</title>
+</head>
+<body>
+    <header>
+        <a href="index.html">Página 1</a>
+        <a href="projeto2.html">Página 2</a>
+      
+    </header>
+    
+    <section id="container">
+        <!-- O cartão será inserido aqui pelo JavaScript -->
+    </section>
+    
+    <footer>
+        <p>Desenvolvido por: Lucas Perim </p>
+    </footer>
+    
+    
+    <script>
+        criaCartao('Nome', 'email', 'telefone');
+    
+        function criaCartao(nome, email , telefone){
+            let container = document.getElementById('container');
+            let cartao = document.createElement('article');
+            cartao.className = 'cartao';
+            cartao.innerHTML = `
+            <div class="conteudo-cartao">
+                <h3>${nome}</h3>
+                <div class="pergunta-cartao">
+                    <p>${email}</p>
+                </div>
+                <div class="resposta-cartao">
+                    <p>${telefone}</p>
+                </div>
+            </div>
+            `;
+    
+            let respostaEstaVisivel = false;
+            function viraCartao(){
+                respostaEstaVisivel = !respostaEstaVisivel;
+                cartao.classList.toggle('active', respostaEstaVisivel);
+            }
+    
+            cartao.addEventListener('click', viraCartao);
+    
+            container.appendChild(cartao);
+        }
+    
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const nome = localStorage.getItem('nome') || 'Nome não informado';
+            const email = localStorage.getItem('email') || 'Email não informado';
+            const telefone = localStorage.getItem('telefone') || 'Telefone não informado';
 
-    // Calcula compatibilidade (lógica simples para exemplo)
-    const compatibilidade = requisitos.every(req => habilidades.includes(req));
-
-    // Cria o cartão com as informações e o resultado da compatibilidade
-    criaCartao(nome, email, telefone, habilidades, requisitos, compatibilidade);
-});
-
-function criaCartao(nome, email, telefone, habilidades, requisitos, compatibilidade) {
-    let container = document.getElementById('container');
-    let cartao = document.createElement('article');
-    cartao.className = 'cartao';
-    cartao.innerHTML = `
-        <div class="conteudo-cartao">
-            <h3>${nome}</h3>
-            <p>Email: ${email}</p>
-            <p>Telefone: ${telefone}</p>
-            <p>Habilidades: ${habilidades.join(', ')}</p>
-            <p>Requisitos: ${requisitos.join(', ')}</p>
-            <p>Compatibilidade: <strong>${compatibilidade ? 'Sim' : 'Não'}</strong></p>
-        </div>
-    `;
-    container.appendChild(cartao);
-}
+            // Cria o cartão com as informações
+            criaCartao(nome, email, telefone);
+        });
+    </script>
+</body>
+</html>
 

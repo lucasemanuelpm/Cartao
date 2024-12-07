@@ -1,31 +1,32 @@
-header>
-        <a href="index.html">Página 1</a>
-        <a href="projeto2.html">Página 2</a>
-      
-    </header>
+<header>
+    <a href="index.html">Página 1</a>
+    <a href="projeto2.html">Página 2</a>
+  
+</header>
 <form id="formulario">
-    <p>Digite seu Nome :</p>
-    <input type="text" id="nome" placeholder="Nome completo" required> <br>
-    <p>Digite seu email</p>
-    <input type="email" id="email" value="@escola.pr.gov.br"> <br>
-    <p>Digite seu número</p>
-    <input type="number" id="telefone" placeholder="(XX)XXXXX-XXXX"> <br>
-    <button type="button" id="enviar">Enviar</button>
-    <button type="reset">Limpar</button>
+<p>Digite seu Nome :</p>
+<input type="text" id="nome" placeholder="Nome completo" required> <br>
+<p>Digite seu email</p>
+<input type="email" id="email" value="@escola.pr.gov.br"> <br>
+<p>Digite seu número</p>
+<input type="number" id="telefone" placeholder="(XX)XXXXX-XXXX"> <br>
+<button type="button" id="enviar">Enviar</button>
+<button type="reset">Limpar</button>
 </form>
 
 <script>
-    document.getElementById('enviar').addEventListener('click', () => {
-        const nome = document.getElementById('nome').value;
-        const email = document.getElementById('email').value;
-        const telefone = document.getElementById('telefone').value;
+document.getElementById('enviar').addEventListener('click', () => {
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
 
-        // Armazena os dados no localStorage
-        localStorage.setItem('nome', nome);
-        localStorage.setItem('email', email);
-        localStorage.setItem('telefone', telefone);
+    // Armazena os dados no localStorage
+    localStorage.setItem('nome', nome);
+    localStorage.setItem('email', email);
+    localStorage.setItem('telefone', telefone);
 
-        // Redireciona para a página index.html
-        window.location.href = 'index.html';
-    });
+    // Redireciona para a página index.html
+    window.location.href = 'index.html';
+});
 </script>
+
