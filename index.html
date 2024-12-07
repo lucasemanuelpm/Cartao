@@ -1,15 +1,15 @@
-<link rel="stylesheet" href="main.py">
-<form id="formulario">                                                                                                
-    <p>Digite seu Nome:</p>
+header>
+        <a href="index.html">Página 1</a>
+        <a href="projeto2.html">Página 2</a>
+      
+    </header>
+<form id="formulario">
+    <p>Digite seu Nome :</p>
     <input type="text" id="nome" placeholder="Nome completo" required> <br>
-    <p>Digite seu email:</p>
+    <p>Digite seu email</p>
     <input type="email" id="email" value="@escola.pr.gov.br"> <br>
-    <p>Digite seu número:</p>
+    <p>Digite seu número</p>
     <input type="number" id="telefone" placeholder="(XX)XXXXX-XXXX"> <br>
-    <p>Habilidades (separadas por vírgula):</p>
-    <input type="text" id="habilidades" placeholder="Ex: Python, SQL, JavaScript" required> <br>
-    <p>Requisitos (separados por vírgula):</p>
-    <input type="text" id="requisitos" placeholder="Ex: Python, SQL, React" required> <br>
     <button type="button" id="enviar">Enviar</button>
     <button type="reset">Limpar</button>
 </form>
@@ -19,18 +19,13 @@
         const nome = document.getElementById('nome').value;
         const email = document.getElementById('email').value;
         const telefone = document.getElementById('telefone').value;
-        const habilidades = document.getElementById('habilidades').value.split(',').map(h => h.trim());
-        const requisitos = document.getElementById('requisitos').value.split(',').map(r => r.trim());
 
-        // Salva os dados no localStorage
+        // Armazena os dados no localStorage
         localStorage.setItem('nome', nome);
         localStorage.setItem('email', email);
         localStorage.setItem('telefone', telefone);
-        localStorage.setItem('habilidades', JSON.stringify(habilidades));
-        localStorage.setItem('requisitos', JSON.stringify(requisitos));
 
-        // Redireciona para a página principal
-        window.location.href = 'projeto2.html';
+        // Redireciona para a página index.html
+        window.location.href = 'index.html';
     });
 </script>
-
